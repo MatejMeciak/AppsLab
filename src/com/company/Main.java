@@ -14,6 +14,14 @@ public class Main {
         Date date = new Date(1990, Calendar.AUGUST, 4);
         Employee employee = new Employee("Jozko", "Mrkvicka", date, jobPosition);
 
+        Item item1 = new Item("goldfish", 45);
+        Item item2 = new Item("watch", 15);
+        Item item3 = new Item("dog", 53);
+        Item[] items1 = {item1};
+        Item[] items2 = {item2, item3};
+        Warrior warrior1 = new Warrior("warrior1", 10, 4, 7, items1);
+        Warrior warrior2 = new Warrior("warrior2", 9, 5, 3, items2);
+
         System.out.println("1. ) " + totalDistance(0.2, 0.4, 100.0));
         System.out.println("2. ) " + equal(3, 4, 3));
         System.out.println("3. ) " + isTriangle(2, 3, 4));
@@ -32,6 +40,7 @@ public class Main {
         System.out.println("14. ) Area: " + Triangle.getArea(new Triangle(3, 4,5)));
         System.out.println("      Perimeter: " + Triangle.getPerimeter(new Triangle(3, 4,5)));
         System.out.println("15. ) " + employee.name + " " +employee.surname + ", " + employee.jobPosition.name + ", salary: " + employee.jobPosition.salary + " eur.");
+        System.out.println("16. ) " + battle(warrior1, warrior2));
     }
 
     public static double totalDistance(double stairHeight, double stairLength, double towerLength) {
@@ -109,8 +118,17 @@ public class Main {
         }
         return totalBudget;
     }
+    public static int battle(Warrior warrior1, Warrior warrior2){
+        int totalForce1 = warrior1.life + warrior1.muscle + warrior1.speed;
+        int totalForce2 = warrior2.life + warrior2.muscle + warrior2.speed;
+        if (totalForce1 > totalForce2) return 1;
+        else if (totalForce1 < totalForce2) return 2;
+        return 0;
+    }
 
 }
+
+
 class Student {
     String name;
     String address;
@@ -237,5 +255,31 @@ class JobPosition{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+}
+
+class Warrior{
+    String name;
+    int life;
+    int speed;
+    int muscle;
+    Item[] items;
+
+    public Warrior(String name, int life, int speed, int muscle, Item[] items) {
+        this.name = name;
+        this.life = life;
+        this.speed = speed;
+        this.muscle = muscle;
+        this.items = items;
+    }
+}
+
+class Item{
+    String name;
+    int value;
+
+    public Item(String name, int value) {
+        this.name = name;
+        this.value = value;
     }
 }
