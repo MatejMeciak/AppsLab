@@ -32,7 +32,7 @@ public class Main {
         System.out.println("8. ) " + differenceMaxMin(new int[] {10, 4, 1, 4, -10, -50, 32, 21}));
         System.out.println("9. ) " + warOfNumbers(new int[] {2, 3, 1, 0}));
         System.out.println("10. ) " + checkEnding("abc", "bc"));
-        System.out.println("11. ) " + canCapture("F5", "C8"));
+        System.out.println("11. ) " + canCapture(new String[] {"C2", "C8"}));
         System.out.println("12.a ) " + student1.getName() + ": " + student1.getStudentNumber());
         System.out.println("12.b ) " + student1.getStudentNumber() + ", " + student1.getPhoneNumber() + ", " + student1.getAddress());
         System.out.println("      " + student2.getStudentNumber() + ", " + student2.getPhoneNumber() + ", " + student2.getAddress());
@@ -53,17 +53,8 @@ public class Main {
     }
     public static int equal(int a, int b, int c){
         int[] args = { a, b, c };
-        if (a == b && b == c){
-            return 3;
-        }
-        else if (a == c){
-            return 2;
-        }
-        for (int i = 0; i < 2; i++){
-            if (args[i] == args[i+1]){
-                return 2;
-            }
-        }
+        if (a == b && b == c) return 3;
+        else if (a == b || b == c || a == c) return 2;
         return 0;
     }
 
@@ -102,10 +93,7 @@ public class Main {
         sb.append(first, first.length() - 1, second.length());
         return sb.toString().equals(second);
     }
-    public static boolean canCapture(String a, String b){
-        if (a.length() > 2 || b.length() > 2){
-            System.out.println("Invalid Input");
-        }
+    public static boolean canCapture(String[] input){
         return false;
     }
     public static int warOfNumbers(int[] numbers) {
@@ -114,7 +102,7 @@ public class Main {
     public static int calculateBudget(Person[] people){
         int totalBudget = 0;
         for (Person p:people){
-            totalBudget += p.budget;
+            totalBudget += p.getBudget();
         }
         return totalBudget;
     }
@@ -124,162 +112,5 @@ public class Main {
         if (totalForce1 > totalForce2) return 1;
         else if (totalForce1 < totalForce2) return 2;
         return 0;
-    }
-
-}
-
-
-class Student {
-    String name;
-    String address;
-    int studentNumber;
-    int phoneNumber;
-
-    public Student(String name, int studentNumber, int phoneNumber, String address) {
-        this.name = name;
-        this.studentNumber = studentNumber;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getStudentNumber() {
-        return studentNumber;
-    }
-    public String getAddress() {
-        return address;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-}
-class Person {
-    String name;
-    int age;
-    int budget;
-
-    public Person(String name, int age, int budget) {
-        this.name = name;
-        this.age = age;
-        this.budget = budget;
-    }
-}
-class Triangle {
-    int a;
-    int b;
-    int c;
-
-    public Triangle(int a, int b, int c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-    public static int getPerimeter(Triangle triangle){
-        return triangle.a + triangle.b + triangle.c;
-    }
-
-    public static int getArea(Triangle triangle){
-        int s = (triangle.a + triangle.b + triangle.c) / 2;
-        return (int) Math.sqrt(s*(s - triangle.a)*(s - triangle.b)*(s- triangle.c));
-    }
-}
-class Employee{
-    String name;
-    String surname;
-    Date dateOfBirth;
-    JobPosition jobPosition;
-
-    public Employee(String name, String surname, Date dateOfBirth, JobPosition jobPosition) {
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
-        this.jobPosition = jobPosition;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public JobPosition getJobPosition() {
-        return jobPosition;
-    }
-
-    public void setJobPosition(JobPosition jobPosition) {
-        this.jobPosition = jobPosition;
-    }
-}
-class JobPosition{
-    String name;
-    double salary;
-
-    public JobPosition(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-}
-
-class Warrior{
-    String name;
-    int life;
-    int speed;
-    int muscle;
-    Item[] items;
-
-    public Warrior(String name, int life, int speed, int muscle, Item[] items) {
-        this.name = name;
-        this.life = life;
-        this.speed = speed;
-        this.muscle = muscle;
-        this.items = items;
-    }
-}
-
-class Item{
-    String name;
-    int value;
-
-    public Item(String name, int value) {
-        this.name = name;
-        this.value = value;
     }
 }
