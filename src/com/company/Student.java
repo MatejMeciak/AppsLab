@@ -1,9 +1,9 @@
 package com.company;
 class Student {
-    String name;
-    String address;
-    int studentNumber;
-    int phoneNumber;
+    private String name;
+    private String address;
+    private int studentNumber;
+    private int phoneNumber;
 
     public Student(String name, int studentNumber, int phoneNumber, String address) {
         this.name = name;
@@ -11,6 +11,7 @@ class Student {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
+    public String getNameAndSurname() { return this.name + ": " + this.studentNumber; }
 
     public String getName() {
         return name;
@@ -19,6 +20,7 @@ class Student {
     public int getStudentNumber() {
         return studentNumber;
     }
+
     public String getAddress() {
         return address;
     }

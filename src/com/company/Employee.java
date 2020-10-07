@@ -1,14 +1,14 @@
 package com.company;
 
-import java.util.Date;
+import java.util.Calendar;
 
 class Employee{
-    String name;
-    String surname;
-    Date dateOfBirth;
-    JobPosition jobPosition;
+    private String name;
+    private String surname;
+    private Calendar dateOfBirth;
+    private JobPosition jobPosition;
 
-    public Employee(String name, String surname, Date dateOfBirth, JobPosition jobPosition) {
+    public Employee(String name, String surname, Calendar dateOfBirth, JobPosition jobPosition) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
@@ -31,11 +31,11 @@ class Employee{
         this.surname = surname;
     }
 
-    public Date getDateOfBirth() {
+    public Calendar getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(Calendar dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

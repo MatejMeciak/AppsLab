@@ -1,8 +1,8 @@
 package com.company;
 
 public class JobPosition{
-    String name;
-    double salary;
+    private String name;
+    private double salary;
 
     public JobPosition(String name, double salary) {
         this.name = name;

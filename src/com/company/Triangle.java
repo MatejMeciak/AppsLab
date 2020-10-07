@@ -1,9 +1,9 @@
 package com.company;
 
 public class Triangle {
-    int a;
-    int b;
-    int c;
+    private int a;
+    private int b;
+    private int c;
 
     public Triangle(int a, int b, int c) {
         this.a = a;
