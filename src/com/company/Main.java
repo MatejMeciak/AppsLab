@@ -14,7 +14,7 @@ public class Main {
         System.out.println("8. ) " + differenceMaxMin(new int[] {10, 4, 1, 4, -10, -50, 32, 21}));
         System.out.println("9. ) " + warOfNumbers(new int[] {2, 3, 1, 0}));
         System.out.println("10. ) " + checkEnding("abc", "bc"));
-        System.out.println("11. ) " + canCapture(new String[] {"C2", "C8"}));
+        System.out.println("11. ) " + canCapture(new String[] {"A2", "C8"}));
         System.out.println("12.a ) " + getStudentNameAndNumber());
         System.out.println("12.b ) " + getStudentNameAndNumberAndAddress());
         System.out.println("13. ) " + calculateBudget(getPeople()));
@@ -62,9 +62,20 @@ public class Main {
         }
         return word.equals(reversedWord.toString());
     }
-    //TODO
-    public static String rps(String playerOne, String playerTwo){
-        return "Not finished";
+    public static String rps(String player1, String player2){
+        if (player1.equals(player2)) return "DRAW";
+        switch (player1){
+            case "rock":
+                if (player2.equals("paper")) return "Player 2 wins";
+                break;
+            case "paper":
+                if (player2.equals("scissors")) return "Player 2 wins";
+                break;
+            case "scissors":
+                if (player2.equals("rock")) return "Player 2 wins";
+                break;
+        }
+        return "Player 1 wins";
     }
     public static int differenceMaxMin(int[] array){
         Arrays.sort(array);
@@ -73,8 +84,12 @@ public class Main {
     public static boolean checkEnding(String first, String second){
         return first.substring(first.length() - 1, second.length()).equals(second);
     }
-    //TODO
     public static boolean canCapture(String[] input){
+        var rook1 = input[0].toCharArray();
+        var rook2 = input[1].toCharArray();
+        for (int i = 0; i < rook1.length; i++) {
+            if (rook1[i] == rook2[i]) return true;
+        }
         return false;
     }
     public static int warOfNumbers(int[] numbers) {
@@ -121,6 +136,7 @@ public class Main {
         return employee.getName() + " " +employee.getSurname() + ", " + employee.getJobPosition().getName()
                 + ", salary: " + employee.getJobPosition().getSalary() + " eur.";
     }
+    //TODO
     public static Warrior[] initWarriors(){
         Item item1 = new Item("goldfish", 45);
         Item item2 = new Item("watch", 15);
@@ -131,6 +147,7 @@ public class Main {
         Warrior warrior2 = new Warrior("warrior2", 9, 5, 3, items2);
         return new Warrior[] {warrior1, warrior2};
     }
+    //TODO
     public static int battle(Warrior warrior1, Warrior warrior2){
         int totalForce1 = warrior1.getForce();
         int totalForce2 = warrior2.getForce();
